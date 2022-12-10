@@ -1,0 +1,63 @@
+================= Characters ===================
+. - Matches any character except new line
+\. - Matches a dot.
+\\ - Matches backslash
+\* - Matches asterick
+
+================= Character set ===================
+[abcd] - any character which matches either 'a' or 'b' or 'c' or 'd'
+[^abcd] - any character but not 'a' or 'b' or 'c' or 'd'
+[a-z] - any character between 'a' through 'z'
+
+================= Special Sequences ================
+\w - Word character. Same as [a-zA-Z0-9_]. Matches alphanumeric and underscore.
+\W - Non-Word Character. Same as [^a-zA-Z0-9_]. Matches anything but word characters.
+\d - Matches a digit. Same as [0-9]
+\D - Matches a Non-Digit. Same as [^0-9]
+\s - Matches only whitespace.
+\S - Matches only Non-Whitespace.
+
+=================== Anchors ======================
+^ - Start of String
+$ - End of String
+\b - Word boundary [a-zA-Z0-9_]
+\B - Not a word Boundary
+[ ] - Matches characters in square brackets
+[^ ] - Matches characters Not in square brackets
+
+=================== Meta Characters ============
+Meta Characters that needs to be Escaped
+. ^ $ * + ? { } [ ] \ | ( )
+
+=================== Quantifiers =================
+
+1. The standard quantifiers (?, +, *, and {min,max}) are greedy.
+2. When one of these governs a subexpression, such as a?, (expr )+, [0-9]+,
+   there is a minimum number of matches that are required before it can be considered successful and maximum
+   attempt it will ever attempt to match,
+3. They always attempt to match as many times as they can, up to that maximum allowed.
+4. The only time they settle for anything less than their maximum allowed is when matching too much
+   ends up causing some later part of the regex to fail.
+5. plus, question mark and star are called quantifiers, because they influence the quantity of what they govern.
+
+=========================================================
+* - Match expression 0 or more times
++ - Match expression 1 or more times
+? - Match expression 0 or 1 times
+{min,max} - Matches expression exactly 3 times
+
+======================= Grouping ======================
+("A"| "B" | "C") - Either "A" or "B" or "C"
+
+======================= Functions =====================
+re.findall()   # returns a list of all the matches
+re.sub()  # replaces one pattern with other
+re.finditer()  # returns an iterator object
+re.search()  # stops at the first match
+
+====================== Word Boundary (\b) ================
+"start of word" boundary is simply the position where a sequence of alphanumeric characters begins;
+"end of word" is the position where a sequence of alphanumeric characters ends.
+
+--------------------------------------------------------------------------
+Rule: The Match That Begins Earliest (from left to right) Wins
